@@ -1,5 +1,7 @@
 package jp.co.sss.sys.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.sss.sys.entity.Employee;
 import jp.co.sss.sys.form.LoginForm;
 import jp.co.sss.sys.repository.EmployeeRepository;
 
@@ -35,6 +38,8 @@ public class IndexController {
 	 */
 	@RequestMapping(path = "/login", method = RequestMethod.GET)
 	public String login(LoginForm loginForm) {
+		loginForm.setEmpId("empId");
+		loginForm.setPassword("password");
 		return "login";
 	}
 
@@ -47,16 +52,15 @@ public class IndexController {
 	 */
 	@RequestMapping(path = "/top", method = RequestMethod.POST)
 	public String login(LoginForm loginForn, HttpServletRequest req, HttpServletResponse res) {
-		/**
-		//ログインID
-	    String empId = LoginForm.getEmpId();
-
+		
+		//社員番号
+	    String empId = loginForn.getEmpId();
 	    //パスワード
-	    String password = LoginForm.getPassword();
+	    String password = loginForn.getPassword();
 
 	    
 	    //ログインユーザー取得
-	    Employee employee = empRepository.findByIdAndPass(empId, password);
+	    List<Employee> employee = empRepository.findByIdAndPass(empId, password);
 
 	    //ログインチェック
 	    if(employee == null) {
@@ -66,8 +70,8 @@ public class IndexController {
 	    }else {
 	      //存在した場合
 	      req.setAttribute("loginUser", loginForn);
-	      */
+	      
 		  return "top";
-	   // }
+	    }
     }
 }
