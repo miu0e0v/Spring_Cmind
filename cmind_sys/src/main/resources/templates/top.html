@@ -14,10 +14,17 @@
 	<!-- メイン -->
 	<article class="main">
 		<h3 class="page_title">社員一覧画面</h3>
-		<th:block th:text="${loginForm.empId}"></th:block>
+		
+			<!--<th:block th:text="${employee.empName}"></th:block>-->
+			<tr th:each="employee : ${loginUser}">
+      			<td th:text="${employee.empName}"></td>
+      			<td th:text="${employee.birthday}"></td>
+            
+		
 	</article>
 	<!-- フッダー -->
 	<footer th:include="layout/footer :: foot"></footer>
 
 </body>
 </html>
+

@@ -1,8 +1,10 @@
 package jp.co.sss.sys.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 
 /**
  * エンティティクラス
@@ -17,6 +19,7 @@ public class Employee {
 	 * 社員番号
 	 */
 	@Id
+	@Column(name = "emp_id")
 	private String empId;
 
 	//ゲッターセッター
@@ -31,6 +34,7 @@ public class Employee {
 	/**
 	 * パスワード
 	 */
+	@Column(name = "password")
 	private String password;
 
 	//ゲッターセッター
@@ -45,6 +49,7 @@ public class Employee {
 	/**
 	 * 社員名
 	 */
+	@Column(name = "emp_name")
 	private String empName;
 
 	//ゲッターセッター
@@ -59,6 +64,7 @@ public class Employee {
 	/**
 	 * 生年月日
 	 */
+	@Column(name = "birthday")
 	private String birthday;
 
 	//ゲッターセッター
@@ -73,6 +79,7 @@ public class Employee {
 	/**
 	 * 性別
 	 */
+	@Column(name = "gender")
 	private String gender;
 
 	//ゲッターセッター
