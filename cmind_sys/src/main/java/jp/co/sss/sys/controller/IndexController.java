@@ -1,5 +1,7 @@
 package jp.co.sss.sys.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -43,6 +45,8 @@ public class IndexController {
 	 * @param res
 	 * @return top.html
 	 */
+	
+	
 	@RequestMapping(path = "/top", method = RequestMethod.POST)
 	public String login(LoginForm loginForm, HttpServletRequest req, HttpServletResponse res) {
 		
@@ -62,8 +66,9 @@ public class IndexController {
 
 	    }else {
 	      //存在した場合
-	      //List<Employee> employee = empRepository.findAll();
+	      List<Employee> employeeList = empRepository.findAll();
 	      req.setAttribute("loginUser", employee);
+	      req.setAttribute("loginList", employeeList);
 	      
 	           
 		  return "top";

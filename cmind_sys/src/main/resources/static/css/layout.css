@@ -48,6 +48,11 @@ header .user_info a {
 	text-decoration: none;
 }
 
+header .login_user {
+	float: right;
+}
+
+
 /* ---- サイドバー ---- */
 aside {
 	float: left;
