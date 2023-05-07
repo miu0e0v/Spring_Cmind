@@ -48,7 +48,7 @@ public class IndexController {
 	
 	
 	@RequestMapping(path = "/top", method = RequestMethod.POST)
-	public String login(LoginForm loginForm, HttpServletRequest req, HttpServletResponse res) {
+	public String login(LoginForm loginForm, HttpServletRequest req, HttpServletResponse res ) {
 		
 		//社員番号
 	    String empId = loginForm.getEmpId();
@@ -61,8 +61,9 @@ public class IndexController {
 
 	    //ログインチェック
 	    if(employee == null) {
-	      //存在しない場合
-	      return "login";
+		      //存在しない場合
+		      return "login";
+    
 
 	    }else {
 	      //存在した場合
@@ -70,7 +71,7 @@ public class IndexController {
 	      req.setAttribute("loginUser", employee);
 	      req.setAttribute("loginList", employeeList);
 	      
-	           
+	         
 		  return "top";
 	    }
     }
